@@ -5,8 +5,11 @@
 ### **使用流程总览**
 
 1.申请密钥(https://api.shu.university/apply)
+
 2.新建记录(https://api.shu.university/new)
+
 3.循环聊天(https://api.shu.university/chat)
+
 ***other:[记录总览](https://api.shu.university/show)***
 
 ---
@@ -14,7 +17,9 @@
 ### **申请密钥**
 
 #### **准备工作**
+
 1.Python3.*
+
 2.`pip install requests`
 
 #### **示例代码**
@@ -27,7 +32,7 @@ function = lambda json: sys.stdout.write(str(json))
 
 function(
     requests.post(
-        'http://api.shu.university/apply',
+        'https://api.shu.university/apply',
         json={
             'mail': 'demo@shu.university'
         }
@@ -47,7 +52,9 @@ function(
 ### **新建记录**
 
 #### **准备工作**
+
 1.Python3.*
+
 2.`pip install requests`
 
 #### **示例代码**
@@ -60,7 +67,7 @@ function = lambda json: sys.stdout.write(str(json))
 
 function(
     requests.post(
-        'http://api.shu.university/new',
+        'https://api.shu.university/new',
         json={
             'key': 'sk-demo',
             'model': 'MobAI'
@@ -82,7 +89,9 @@ function(
 ### **循环聊天**
 
 #### **准备工作**
+
 1.Python3.*
+
 2.`pip install requests`
 
 #### **示例代码**
@@ -102,7 +111,7 @@ ask = input
 while True:
     function(
         requests.post(
-            url='http://api.shu.university/chat',
+            url='https://api.shu.university/chat',
             json={
                 'key': 'sk-demo',
                 'id': 'id',
@@ -140,14 +149,14 @@ function = lambda data: sys.stdout.write(
 )
 
 requests.post(
-    'http://api.shu.university/apply',
+    'https://api.shu.university/apply',
     json={'mail': ask('Mail:')}
 )
 
 key = ask('Key:')
 
 ai = requests.post(
-    'http://api.shu.university/new',
+    'https://api.shu.university/new',
     json={
         'key': key,
         'model': 'ChatGPT4.0'
@@ -158,7 +167,7 @@ function(ai)
 while True:
     function(
         requests.post(
-            url='http://api.shu.university/chat',
+            url='https://api.shu.university/chat',
             json={
                 'key': key,
                 'id': ai.get('data').get('id'),
